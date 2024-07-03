@@ -1,0 +1,33 @@
+context:
+  name: cygv
+  version: '0.0.2'
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+- url: https://files.pythonhosted.org/packages/79/a5/402fe980248fcec8893a509bf7b435a51daca049242b7fa9cf5fed0a6057/cygv-0.0.2.tar.gz
+  sha256: 8cf100c0f021e7d04f22df6ceca5271299a1b340746e744d55e970fb576d148a
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cross-python_${{target_platform}}
+    - cffi == 1.15.1
+    - openssl
+    - setuptools-rust
+    - rust
+    - maturin
+    - typing_extensions
+
+  host:
+    - python
+    - openssl
+    - cffi == 1.15.1
+    - typing_extensions
+  run:
+    - cffi == 1.15.1
+    - typing_extensions
